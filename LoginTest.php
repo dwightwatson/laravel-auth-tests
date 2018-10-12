@@ -40,7 +40,7 @@ class LoginTest extends TestCase
 
         $response->assertStatus(302);
 
-        $this->seeIsAuthenticatedAs($user);
+        $this->assertAuthenticatedAs($user);
     }
 
     /**
@@ -59,7 +59,7 @@ class LoginTest extends TestCase
 
         $response->assertSessionHasErrors();
 
-        $this->dontSeeIsAuthenticated();
+        $this->assertGuest();
     }
 
     /**
@@ -75,6 +75,6 @@ class LoginTest extends TestCase
 
         $response->assertStatus(302);
 
-        $this->dontSeeIsAuthenticated();
+        $this->assertGuest();
     }
 }
