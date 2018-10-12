@@ -42,7 +42,7 @@ class RegisterTest extends TestCase
 
         $response->assertStatus(302);
 
-        $this->seeIsAuthenticated();
+        $this->assertAuthenticated();
     }
 
     /**
@@ -63,6 +63,6 @@ class RegisterTest extends TestCase
 
         $response->assertSessionHasErrors();
 
-        $this->dontSeeIsAuthenticated();
+        $this->assertGuest();
     }
 }
